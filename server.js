@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const studentRoutes = require("./routes/studentRoutes");
+const facultyRoutes = require("./routes/facultyRoutes");
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/studentDB")
 
 //Routes
 app.use("/api",studentRoutes);
+app.use("/api", facultyRoutes);
 
 app.listen(3000,() => {
     console.log("Server running on http://localhost:3000");
